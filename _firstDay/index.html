@@ -15,23 +15,34 @@
         <br>
         <div>{{msg}}</div>
         <div>{{test}}</div>
+        {{reverseMsg}}
+        {{reverseMsg1()}}
+        <div class="wrap"></div>
         <button @click="test++">test</button>
- 
+
     </div>
     <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
     <script>
-        Vue.createApp({
-            data() {
-                return {
-                    msg: 'hellowrod',
-                    test: null,
-                };
+      
+            let app = Vue.createApp({
+                data() {
+                    return {
+                        msg: 'hellowrod',
+                        test: null,
+                    };
             },
             methods: {
-
+                reverseMsg1() {
+                    console.log("method")
+                    return this.msg.split("").reverse().join("");
+                }
             },
             computed: {
-
+                reverseMsg() {
+                    console.log("cputed");
+                    return this.msg.split("").reverse().join("");
+                }
+                
             },
             watch: {
                 test(value) {
@@ -41,10 +52,14 @@
                     } else {
                         this.msg = "data is invalid ";
                     }
-
+                    
                 },
             }
         }).mount("#app");
+        
+        
+  
+
     </script>
 </body>
 
