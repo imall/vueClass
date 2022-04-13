@@ -21,7 +21,7 @@
           };
         },
         watch: {
-          mydata: function (value) {
+          mydata(value) {
             if (this.IsInRange(value)) {
               this.msg = "data is valid ";
             } else {

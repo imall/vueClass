@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
+
     <div id="app">
-       <h1>{{test}}</h1>
-       <p>{{number}}</p>
-       <button @click="number++">btn</button>
+        <input type="text" v-model.number="test">
+        <br>
+        <div>{{msg}}</div>
+        <div>{{test}}</div>
+        <button @click="test++">test</button>
+ 
     </div>
-    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
     <script>
         Vue.createApp({
             data() {
                 return {
-                    test:"app",
-                    number: 1,
-                }
+                    msg: 'hellowrod',
+                    test: null,
+                };
+            },
+            methods: {
+
+            },
+            computed: {
+
+            },
+            watch: {
+                test(value) {
+                    console.log(value)
+                    if (value > 0 && value <= 100) {
+                        this.msg = "data is valid ";
+                    } else {
+                        this.msg = "data is invalid ";
+                    }
+
+                },
             }
-        }).mount('#app')
+        }).mount("#app");
     </script>
 </body>
+
 </html>
-
-<script>
-
-
-</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 測試trim的效果,此行加空白有效 -->
+        <input v-model="input.input1" placeholder="Enter data">
+        <p>[{{input.input1}}]</p>
+        
+        <br>
+        <!-- 此行加空白無效 -->
+        <input v-model.trim="input.input2" placeholder="Enter data">
+        <p>[{{input.input2}}]</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            input: {
+              input1: "",
+              input2: "",
+            },
+          };
+        },
+      }).mount("#app");
+    </script>
+</body>
+
+</html>

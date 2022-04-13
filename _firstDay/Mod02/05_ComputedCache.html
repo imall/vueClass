@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <input type="text" v-model="msg"> 
+        <br>
+        <input type="button" @click="GetComputeValue()" value="test">
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    msg: 'Hello World ! '
+                };
+            },
+            methods: {
+                GetComputeValue: function () {
+                    alert(this.cValue);
+                }
+            },
+            computed: {
+                cValue: function () {
+                    /* 測試cache,只有在文字方塊更改了msg的值時,
+                        該計算屬性才會再次被呼叫,
+                        不然都是直接CALL cache */
+                    console.log("trigger computed!" + this.msg);
+                    return this.msg.toUpperCase();
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>
