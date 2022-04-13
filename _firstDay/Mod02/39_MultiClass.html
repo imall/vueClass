@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+        border: red 1px solid;
+      }
+      .data-valid {
+        color: green;
+        border: green 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <input
+        type="text"
+        v-model="mydata"
+        v-bind:class="{ error : isError , 'data-valid' : !isError }"
+      />
+      <div>{{ msg }}</div>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            msg: "",
+            mydata: "",
+            isError: null,
+          };
+        },
+        watch: {
+          mydata: function () {
+            var isNumber = /^\d+$/;
+            var isNotEmpty = /\S+/;
+            var s = this.mydata;
+            if (!isNumber.test(s) && isNotEmpty.test(s)) {
+              this.isError = true;
+              this.msg = " data is invalid ";
+            } else {
+              this.isError = false;
+              this.msg = " data is valid ";
+            }
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

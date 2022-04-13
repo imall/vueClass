@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" v-model="msgUpper" />
+      <p>{{ msg }}</p>
+      <p>{{ msgUpper }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            msg: "Hello World ! ",
+          };
+        },
+        computed: {
+          msgUpper: {
+            get() {
+              return this.msg.toUpperCase();
+            },
+            set(newvalue) {
+              this.msg = newvalue.toLowerCase();
+            },
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

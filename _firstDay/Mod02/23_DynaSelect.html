@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3> 選取多個城市 </h3>
+      <select v-model="city" multiple>
+        <option v-for="o in cityOptions" v-bind:value="o.value">
+          {{ o.value }} - {{ o.text }}
+        </option>
+      </select>
+
+      <p> <strong> 你選了: </strong> {{ city }} </p>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            city: [],
+            cityOptions: [
+              { text: "台北", value: "1" },
+              { text: "台中", value: "2" },
+              { text: "高雄", value: "3" },
+              { text: "嘉義", value: "4" },
+              { text: "雲林", value: "5" },
+            ],
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

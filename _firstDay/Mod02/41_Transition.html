@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .fade-enter-active,
+      .fade-leave-active {
+        transition: opacity 2s;
+      }
+      .fade-enter-from,
+      .fade-leave-to {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="show = !show">Click</button>
+      <transition name="fade">
+        <div v-if="show" v-bind:style="mystyle">{{ msg }}</div>
+      </transition>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            msg: " Hello World ! ",
+            show: true,
+            mystyle: {
+              margin: "auto",
+              width: "200px",
+              height: "80px",
+              lineHeight: "80px",
+              textAlign: "center",
+              backgroundColor: "lightblue",
+            },
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

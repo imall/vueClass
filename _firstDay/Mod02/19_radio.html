@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input v-model="gender" type="radio" value="male" id="gender1" />
+      <label for="gender1"> Male </label>
+      <input v-model="gender" type="radio" value="female" id="gender2" />
+      <label for="gender2"> Female </label>
+      <p>
+        <strong> gender : </strong> {{ gender }}
+      </p>
+    
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+           gender: null
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

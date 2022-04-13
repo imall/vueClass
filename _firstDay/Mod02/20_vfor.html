@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title> Document </title>
+  </head>
+  <body>
+    <div id="app">
+      <template v-for="(option , index) in genderOptions" :key="option.value>
+        <input
+          v-model="gender"
+          type="radio"
+          v-bind:value="option.value"
+          v-bind:id="option.value"
+        />
+        <label v-bind:for="option.value"> {{ option.label }} </label>
+      </template>
+
+      <p><strong> gender : </strong> {{ gender }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            gender: "",
+            genderOptions: [
+              {
+                label: "Male",
+                value: "male",
+              },
+              {
+                label: "Female",
+                value: "female",
+              },
+            ],
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <button @click="plusone()">Add to Cart</button>
+      <p><strong> num : </strong> {{ num }}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            num: 0,
+          };
+        },
+        methods: {
+          plusone: function () {
+            this.num += 1;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

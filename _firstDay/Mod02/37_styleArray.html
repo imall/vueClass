@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-bind:style=" [styleObj, colorObj] " v-on:click="larger()">
+        {{ msg }}
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            msg: "Hello World !",
+            fontSize: 12,
+            styleObj: { fontSize: "12px" },
+            colorObj: { color: "blue", backgroundColor: "pink" },
+          };
+        },
+        methods: {
+          larger: function () {
+            this.fontSize = this.fontSize + 2;
+            this.styleObj.fontSize = this.fontSize + "px";
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

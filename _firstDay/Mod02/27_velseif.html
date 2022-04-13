@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <select v-model="size">
+        <option disabled value=""> 選取咖啡大小 </option>
+        <option> Large </option>
+        <option> Medium </option>
+        <option> Small </option>
+      </select>
+      <br/>
+      <template v-if="size=='Large'">
+        <label> 你選擇的是: </label>
+        <p> Large </p>
+      </template> 
+      <template v-else-if="size=='Medium'">
+        <label> 你選擇的是: </label>
+        <p> Medium </p>
+      </template> 
+      <template v-else-if="size=='Small'">
+        <label> 你選擇的是: </label>
+        <p> Small </p>
+      </template> 
+      <template v-else>
+        <p> 未選擇大小 </p>
+      </template>
+    
+    </div>
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+      Vue.createApp({
+        data() {
+          return {
+            size: null,
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
