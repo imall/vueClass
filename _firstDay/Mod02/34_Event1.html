@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 測試capture -->
+        <!-- 預設點了here is p1,會觸發bubble event,會由內層優先 -->
+        <div @click="showMsg($event)">
+            here is div1
+            <p @click="showMsg($event)">
+                here is p1
+            </p>
+        </div>
+        <hr>
+        <!-- 用capture的話,bubble event的規則會變成外層優先 -->
+        <div @click.capture="showMsg($event)">
+            here is div2
+            <p @click="showMsg($event)">
+                here is p2
+            </p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                };
+            },
+            methods: {
+                showMsg: function (event) {
+                    console.log(event.currentTarget.tagName);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

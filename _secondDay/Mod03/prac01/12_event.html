@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <welcome-component
+        v-bind:user-name="name"
+        v-on:sayhello="onsayhello"
+      ></welcome-component>
+    </div>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+      let welcome = {
+        template: `<div>
+                    <label> {{labelText}} </label>
+                    <input type="text" v-model="inputText" />
+                    <button v-on:click="$emit('sayhello', inputText)">
+                        sayhello
+                    </button>
+                    </div>`,
+        props: ["userName"],
+        data: function () {
+          return {
+            labelText: " Hello ",
+            inputText: this.userName,
+          };
+        },
+      };
+
+      var app = Vue.createApp({
+        data() {
+          return {
+            name: "mary",
+          };
+        },
+        components: {
+          WelcomeComponent: welcome,
+        },
+        methods: {
+          onsayhello: function (txt) {
+            console.log(txt);
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

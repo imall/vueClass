@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- 測試keyup事件與修飾符 -->
+        <!-- 用按鍵別名或是keycode都可以 -->
+        <textarea @keyup="showMsg($event)">here is div1</textarea>
+        <textarea @keyup.enter="showMsg($event)">here is div2</textarea>
+        <textarea @keyup.q="showMsg($event)">here is div2</textarea>
+
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                };
+            },
+            methods: {
+                showMsg: function (event) {
+                    console.log(`keyup : ${event.key} , ${event.keyCode}`);
+                }
+            }
+        }).mount("#app");
+    </script>
+</body>
+
+</html>

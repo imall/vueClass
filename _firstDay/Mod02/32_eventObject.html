@@ -8,24 +8,26 @@
   </head>
   <body>
     <div id="app">
-      <button @click="plusNum(step, $event)">Add to Cart</button>
+      <button @click="plusNum( $event,step)">Add to Cart</button>
       <p><strong> num : </strong> {{ num }}</p>
     </div>
     <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
     <script>
+     
       Vue.createApp({
         data() {
           return {
             num: 0,
             step: 10,
+            app:100
           };
         },
         methods: {
-          plusNum: function (val, event) {
+          plusNum: function (event,step) {
             console.log(event.target.tagName);
-            console.log(event.target);
+            console.log(event.target.nextElementSibling);
             console.log(event.type);
-            this.num += val;
+            this.num += step;
           },
         },
       }).mount("#app");
