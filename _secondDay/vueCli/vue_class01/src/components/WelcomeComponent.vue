@@ -1,8 +1,8 @@
 <template>
   <div>
     <label> {{ labelText }} </label>
-    <input type="text" v-model="inputText" />
-    <button v-on:click="$emit('sayhello', inputText)">sayhello</button>
+    <input type="text" v-model="inputText"  @keyup.enter="sayHello()" />
+    <button v-on:click="sayHello()">sayhello</button>
   </div>
 </template>
 
@@ -15,6 +15,11 @@ export default {
       inputText: this.userName,
     };
   },
+  methods:{
+    sayHello(){
+      this.$emit('sayhello', this.inputText)
+    }
+  }
 };
 </script>
 

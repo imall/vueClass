@@ -9,22 +9,23 @@
 </template>
 
 <script>
-import Welcome from "./components/WelcomeComponent.vue";
+import WelcomeComponent from "./components/WelcomeComponent.vue";
+
 
 export default {
   name: "App",
   data() {
     return {
       name: "mary",
-      msg:''
+      msg: "",
     };
   },
   components: {
-    WelcomeComponent: Welcome,
+    WelcomeComponent,
   },
   methods: {
     onsayhello: function (txt) {
-     this.msg = txt 
+      this.msg = txt;
     },
   },
 };
