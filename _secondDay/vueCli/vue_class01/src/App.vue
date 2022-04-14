@@ -1,8 +1,8 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <welcome-component
-    v-bind:user-name="name"
-    v-on:sayhello="onsayhello"
+    :user-name="name"
+    @sayhello="onsayhello"
   ></welcome-component>
 
   <div>{{ msg }}</div>
