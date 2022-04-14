@@ -3,6 +3,11 @@
     <h1 class="display-3">Posts App</h1>
     <h1 class="h6">Seeing all posts.</h1>
     <PostsComponent></PostsComponent>
+    <div class="container" >
+        <div class="row">
+        
+        </div>
+    </div>
   </div>
 </template>
 
@@ -13,6 +18,7 @@ export default {
   components: {
     PostsComponent,
   },
+
 };
 </script>
 

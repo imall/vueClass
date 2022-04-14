@@ -23,18 +23,23 @@
     </div>
     <script src="https://unpkg.com/vue@3.0.4/dist/vue.global.js"></script>
     <script>
-      
-            let app = Vue.createApp({
-                data() {
-                    return {
-                        msg: 'hellowrod',
-                        test: null,
-                    };
+
+        let app = Vue.createApp({
+            data() {
+                return {
+                    msg: 'hellowrod',
+                    test: null,
+                };
             },
             methods: {
                 reverseMsg1() {
-                    console.log("method")
+                    console.log("reverseMsg1")
                     return this.msg.split("").reverse().join("");
+                },
+                method2(){
+                    console.log("method2")
+
+                    return this.msg+this.test
                 }
             },
             computed: {
@@ -42,7 +47,7 @@
                     console.log("cputed");
                     return this.msg.split("").reverse().join("");
                 }
-                
+
             },
             watch: {
                 test(value) {
@@ -52,13 +57,24 @@
                     } else {
                         this.msg = "data is invalid ";
                     }
-                    
+
                 },
             }
         }).mount("#app");
-        
-        
-  
+
+        console.log("%c===============呼叫method==================",' color: red')
+        console.log("app.reverseMsg1："+app.reverseMsg1())
+        console.log("%c==========computed=============",' color: red')
+
+        console.log("app.reverseMsg："+app.reverseMsg)
+        console.log("%c==========改msg=============",' color:red')
+
+        console.log(app.msg = "msg")
+        console.log("資料改了，若computed有關係，資料觸發")
+        console.log("資料改了，若method跟畫面有關係，擇函數觸發")
+
+
+
 
     </script>
 </body>
