@@ -14,7 +14,7 @@
     isMarried : <input type="checkbox" v-model="employee.isMarried" /><br />
   </div>
   <hr />
-  <div>Employee Info : {{ employeeInfo }} </div>
+  <div>Employee Info : {{ employeeInfo }}</div>
 </template>
 
 <script>
@@ -53,6 +53,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
-
+<style></style>

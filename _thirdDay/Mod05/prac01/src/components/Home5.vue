@@ -1,10 +1,13 @@
 <template>
   <h1>Home</h1>
-  <div ref="div">
+  <div ref="divtag">
     <p>Employee Name : {{ employeeName }}</p>
     <p>Age : {{ age }}</p>
     <p>Is Married : {{ isMarried }}</p>
   </div>
+
+
+ 
   <button @click="buttonClick">Click</button>
 </template>
 
@@ -17,7 +20,7 @@ export default {
     const age = ref(50);
     const isMarried = ref(true);
 
-    const div = ref(null);
+    const divtag = ref(null);
 
     const buttonClick = () => {
       employeeName.value = "candy";
@@ -26,7 +29,9 @@ export default {
       console.log(employeeName.value);
       console.log(age.value);
       console.log(isMarried.value);
-      div.value.style.backgroundColor = "yellow";
+      console.log(divtag.value)
+      divtag.value.style.backgroundColor = "yellow";
+      divtag.value.classList.add('className');
     };
 
     return {
@@ -34,7 +39,7 @@ export default {
       age: age,
       isMarried: isMarried,
       buttonClick,
-      div,
+      divtag,
     };
   },
 };

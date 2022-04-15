@@ -1,5 +1,6 @@
 <template>
   <h1>Home</h1>
+  <button @click="employeeList.pop()">remove employee</button>
   <button @click="show = !show">Show/Hide Employees</button>
   <employees2 v-if="show" :employee-list="employeeList" />
 </template>

@@ -1,22 +1,23 @@
 <template>
-  <!-- <home14/>  -->
+  <home14/> 
   <!-- <home13/>  -->
   <!-- <home12/>  -->
   <!-- <home11/>  -->
   <!-- <home10/>  -->
   <!-- <home9/>  -->
   <!-- <home8/>  -->
+  <!-- <test></test> -->
   <!-- <home7/>  -->
   <!-- <home6/>  -->
-  <!-- <home5/>  -->
+  <!-- <home5/> 
   <home4/> 
-  <!-- <home3/>  -->
-  <!-- <home2/>  -->
-  <!-- <home/> -->
+  <home3/> 
+  <home2/> 
+  <home/> -->
 </template>
 
 <script>
-
+import test from './components/test.vue';
 import Home from "./components/Home.vue";
 import Home2 from "./components/Home2.vue";
 import Home3 from "./components/Home3.vue";
@@ -35,6 +36,7 @@ import Home14 from "./components/Home14.vue";
 export default {
   name: "App",
   components: {
+    test,
     Home,
     Home2,
     Home3,
