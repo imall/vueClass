@@ -15,6 +15,9 @@
           >
             Delete
           </button>
+                  <router-link class="btn btn-success" :to="`/edit/${p.id}`">
+            Edit
+          </router-link>
         </div>
       </li>
     </ul>
@@ -22,16 +25,20 @@
 </template>
 
 <script>
-import vuex from "vuex";
-// 或是這樣寫
-// import {mapGetters,mapActions} from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 export default {
-  computed: { ...vuex.mapGetters(["getAllPosts"]) },
+  name: "Posts",
+  computed: {
+    ...mapGetters(["getAllPosts"]),
+  },
   methods: {
-    ...vuex.mapActions(["getPostsAction","removePostAction"])
+    ...mapActions(["getPostsAction", "removePostAction"]),
   },
   created() {
-    this.getPostsAction();
+    console.log(this.getAllPosts.length)
+    if (this.getAllPosts.length <= 0) {
+      this.getPostsAction();
+    }
   },
 };
 </script>

@@ -1,15 +1,23 @@
 <template>
   <div class="container">
-    <div id="nav">
-      <router-link to="/"> Home </router-link> |
-      <router-link to="/about"> About </router-link>
-    </div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+     
+          <router-link class="nav-link" to="/"> Home </router-link>
+       
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/about"> About </router-link>
+      </li>
+    </ul>
+   
     <div class="container">
+        
       <router-view />
+    
     </div>
   </div>
 </template>
-
 <script>
 
 export default {
@@ -27,4 +35,9 @@ export default {
 body {
   background-color: rgb(252, 233, 198) !important;
 }
+.nav-item {
+     width:50%;
+     text-align: center
+   }
+
 </style>

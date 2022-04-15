@@ -1,10 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import Home from './components/HomeComponent.vue'
-import About from './components/AboutComponent.vue'
+import Home from './components/Home.vue'
+import About from './components/About.vue'
+import EditPost from './components/EditPost.vue'
 
 export default createRouter({
   history : createWebHistory(),
+  linkActiveClass:'active',
   routes: [
     {
       path: '/',
@@ -15,6 +17,11 @@ export default createRouter({
       path: '/about',
       name: 'about',
       component: About
+    },
+    {
+      path: '/edit/:id',
+      name: 'editPost',
+      component: EditPost
     }
   ]
 })

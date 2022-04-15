@@ -35,6 +35,7 @@ export default {
     ...mapActions(["getPostsAction", "removePostAction"]),
   },
   created() {
+    console.log(this.getAllPosts.length)
     if (this.getAllPosts.length <= 0) {
       this.getPostsAction();
     }

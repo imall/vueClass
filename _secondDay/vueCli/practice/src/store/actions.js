@@ -12,6 +12,13 @@ export default {
     async removePostAction({ commit },id){
          await axios.delete("https://jsonplaceholder.typicode.com/posts/"+id)
         commit("delete",id)
-    }
+    },
+    async editPostAction({ commit }, post) {
+        const response = await axios.put(
+          `https://jsonplaceholder.typicode.com/Posts/${post.id}`,
+          post
+        );
+        commit('updatePost', response.data)
+      }
 
 }
